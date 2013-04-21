@@ -16,7 +16,7 @@
 	<ul id="questions">
 	{% for question in questions %}
 	<li>
-		{{ question }}
+		<a href="{% url 'question' question.id %}">{{ question }}</a>
 		<span class="count">{{ question.answers.all.count }}</span>
 		<span class="author">{{ question.author }}</span>
 	</li>

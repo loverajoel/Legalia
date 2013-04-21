@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+import markdown
+
 # Create your models here.
 
 class Question(models.Model):
@@ -12,6 +14,9 @@ class Question(models.Model):
 	def __unicode__(self):
 		return self.question
 
+	def description_markdown(self):
+		return markdown.markdown(self.question)
+
 class Answer(models.Model):
 	question = models.ForeignKey(Question, related_name='answers')	
 	body = models.TextField()
@@ -20,3 +25,6 @@ class Answer(models.Model):
 
 	def __unicode__(self):
 		return self.body
+
+	def body_markdown(self):
+		return markdown.markdown(self.body)

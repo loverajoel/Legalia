@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<h1 id="question"> {{ question.question }} </h1>
+	{% if question.description %}
+	<p>{{ question.description }}</p>
+	{% endif %}
+
+	{% for answer in question.answers.all %}
+		<div class="answer">
+			{{ answer.body_markdown|safe }}
+			<p>{{ answer.author }} • {{ answer.pub_date }}</p>
+		</div>
+	{% endfor %}
+</body>
+</html>

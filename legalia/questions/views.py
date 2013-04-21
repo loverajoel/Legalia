@@ -3,7 +3,6 @@ from django.shortcuts import render
 from questions.models import Question
 
 def index(request):
-	print request.user.is_authenticated()
 	context = {
 		'auth': request.user.is_authenticated(),
 		'user': request.user,
@@ -11,11 +10,10 @@ def index(request):
 	}
 	return render(request, 'questions/index.html', context)
 
-def one(request, id):
-	print request.user.is_authenticated()
+def question(request, question_id):
 	context = {
 		'auth': request.user.is_authenticated(),
 		'user': request.user,
-		'questions': Question.objects.all()[:15]
+		'question': Question.objects.filter(id=question_id).get()
 	}
-	return render(request, 'questions/index.html', context)
+	return render(request, 'questions/view.html', context)
