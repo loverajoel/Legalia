@@ -12,6 +12,16 @@
 	{% else %}	
 	Welcome {{ user }}
 	{% endif %}
+	
+	<ul id="questions">
+	{% for question in questions %}
+	<li>
+		{{ question }}
+		<span class="count">{{ question.answers.all.count }}</span>
+		<span class="author">{{ question.author }}</span>
+	</li>
+	{% endfor %}
+	</ul>
 
 </body>
 </html>
