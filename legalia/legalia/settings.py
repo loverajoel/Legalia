@@ -160,7 +160,30 @@ LOGGING = {
 }
 
 AUTHENTICATION_BACKENDS = (
-	'social_auth.backends.twitter.TwitterBackend',
 	'social_auth.backends.facebook.FacebookBackend',
 	'django.contrib.auth.backends.ModelBackend',
 )
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+	'django.contrib.auth.context_processors.auth',
+	'social_auth.context_processors.social_auth_by_type_backends',
+	'social_auth.context_processors.social_auth_backends',
+	'social_auth.context_processors.social_auth_by_type_backends',
+	'social_auth.context_processors.social_auth_login_redirect',
+)
+
+FACEBOOK_APP_ID              = '447614738660888'
+FACEBOOK_API_SECRET          = 'f9af2bfbb68b54f67c6c5c2667adea03'
+GITHUB_APP_ID = '912e8fdc7df64ca604e3'
+GITHUB_API_SECRET = '4a69b867dd49c6f1b8e8d3f495f729e5a236fb59'
+
+SOCIAL_AUTH_ENABLED_BACKENDS = ('twitter', 'facebook')
+SOCIAL_AUTH_DEFAULT_USERNAME = "new_social_auth_user"
+SOCIAL_AUTH_ASSOCIATE_BY_MAIL = True
+SOCIAL_AUTH_EXTRA_DATA = True
+
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGIN_ERROR_URL = '/login-error/'
+
+FACEBOOK_EXTENDED_PERMISSIONS = ['email']

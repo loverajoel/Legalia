@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+
+	{% if not auth %}	
+	Login with <a href="{% url "socialauth_begin" 'twitter' %}">Twitter</a><br/>
+	Login with <a href="{% url "socialauth_begin" 'facebook' %}">Facebook</a>
+	{% else %}	
+	Welcome {{ user }}
+	{% endif %}
+
+</body>
+</html>
