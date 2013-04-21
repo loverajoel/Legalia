@@ -9,3 +9,4 @@ Legalia
 - oauth2 (1.5.211)
 - python-openid (2.2.5)
 - wsgiref (0.1.2)
+- Markdown (2.3.1)
